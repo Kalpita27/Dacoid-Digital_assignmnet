@@ -1,0 +1,287 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #f9f9f9;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* index.css */
+body {
+  cursor: pointer;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #313030;
+}
+
+/* Basic Calendar styles */
+/* Add specific styles for calendar, event modal, and buttons */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.calendar-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  padding: 20px;
+  background-color: #f1f1f1;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.calendar-day.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.calendar-day.today {
+  background-color: #28a745;
+  color: white;
+}
+
+.search-section {
+  margin: 10px 0;
+}
+
+.search-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.scheduled-events {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/*  */
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.events-table th,
+.events-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.events-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.events-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/*  */
+.event-item {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.event-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Same as before, but with some adjustments for modal layout */
+/* Add the necessary styling to the modal and prevent resizing */
+
+
+.event-modal input,
+.event-modal textarea,
+.event-modal select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+button {
+  width:40%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+button:nth-child(2) {
+  background-color: #f44336;
+}
+
+button:nth-child(2):hover {
+  background-color: #e53935;
+}
+
+
+/* Event modal styling */
+.event-modal {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(72, 144, 244, 0.605);
+  z-index: 1000;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .event-modal {
+    width: 95%;
+  }
+}
+
+/* Calendar grid styles */
+.calendar-day.selected {
+  background-color: rgb(41, 153, 222);
+  border: 1px solid #ccc;
+}
+
+.calendar-day {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scheduled-events .event-item {
+  margin-bottom: 15px;
+}
+
+.scheduled-events .event-item p {
+  margin: 5px 0;
+}
+
+.scheduled-events .event-item strong {
+  font-size: 1.2rem;
+}
+
+/* Styling for the modal and event types */
+.event-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px; /* Square size for the modal */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-modal textarea {
+  resize: none; /* Prevent resizing */
+  height: 100px; /* Fixed height for description */
+}
+
+.event-modal button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.event-modal button:last-child {
+  background-color: #dc3545;
+}
+
+
+.scheduled-events-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.events-table th,
+.events-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.events-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.events-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
