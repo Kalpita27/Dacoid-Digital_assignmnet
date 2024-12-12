@@ -14,18 +14,18 @@ const Calendar = () => {
   const [showEventListModal, setShowEventListModal] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [filteredEvents, setFilteredEvents] = useState([]); // For search functionality
-  const [search, setSearch] = useState(""); // Search keyword
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [search, setSearch] = useState("");
 
   const handleDateClick = (date) => {
-    const formattedDate = `${currentYear}-${currentMonth + 1}-${date}`; // Format as YYYY-MM-DD
+    const formattedDate = `${currentYear}-${currentMonth + 1}-${date}`;
     setSelectedDate(formattedDate);
   
     const existingEvent = events.find((event) => event.date === formattedDate);
     if (existingEvent) {
-      setNewEvent(existingEvent); // Pre-fill the popup with the existing event
+      setNewEvent(existingEvent);
     } else {
-      setNewEvent({ name: "", start: "", end: "", description: "", type: "work" }); // Reset for new event
+      setNewEvent({ name: "", start: "", end: "", description: "", type: "work" }); 
     }
   
     setShowModal(true);
@@ -91,7 +91,6 @@ const Calendar = () => {
     const keyword = e.target.value.toLowerCase();
     setSearch(keyword);
 
-    // Filter events based on the search keyword
     if (keyword.trim() === "") {
       setFilteredEvents([]);
     } else {
@@ -117,7 +116,7 @@ const Calendar = () => {
       <div className="calendar-grid">
   {[...Array(getDaysInMonth(currentMonth, currentYear))].map((_, index) => {
     const date = index + 1;
-    const formattedDate = `${currentYear}-${currentMonth + 1}-${date}`; // Format as YYYY-MM-DD
+    const formattedDate = `${currentYear}-${currentMonth + 1}-${date}`; 
     const dayEvent = events.find((event) => event.date === formattedDate);
     return (
       <div
@@ -155,57 +154,7 @@ const Calendar = () => {
           <p className="no-events">No event present.</p>
         ) : null}
       </div>
-
-      {/* <div className="scheduled-events">
-        <h3>Scheduled Events</h3>
-          {filteredEvents.length > 0 ? (
-          <table className="events-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((event, index) => (
-                <tr key={index}>
-                  <td>{event.date}</td>
-                  <td>{event.name}</td>
-                  <td>{event.start}</td>
-                  <td>{event.end}</td>
-                  <td>{event.description}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No events scheduled yet.</p>
-        )}
-      </div> */}
-      {/* 
-      {showModal && (
-        <EventModal
-          newEvent={newEvent}
-          setNewEvent={setNewEvent}
-          handleSaveEvent={handleSaveEvent}
-          handleClose={handleClose}
-          handleDeleteEvent={handleDeleteEvent}
-          event={events.find((event) => event.date === selectedDate)}
-        />
-      )}
-
-      {showEventListModal && (
-        <EventListModal
-          events={events}
-          closeModal={() => setShowEventListModal(false)}
-          setSelectedEvent={(event) => setNewEvent(event)}
-        />
-      )} */}
-
-      {/* Scheduled Events Table */}
+      
       <div className="scheduled-events-section">
         <h3>Scheduled Events</h3>
         {events.length > 0 ? (
