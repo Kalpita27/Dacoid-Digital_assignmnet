@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Calendar from './components/Calender'; // Assuming Calendar component is imported
+import Calendar from './components/Calender'; 
 
 function App() {
-  const [events, setEvents] = useState({}); // Store events for each date
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Currently selected date
+  const [events, setEvents] = useState({});
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div className="app">
